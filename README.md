@@ -9,6 +9,10 @@ personal debian i3wm rice, use at your own risk (i mean its not inherently evil 
 * **Fetch**: nitch
 * **Shell**: zsh 
 
+# Cool features
+"auto ricing" with pywal, colors will match wallpaper
+this not added yet but in the future bunch of drop down menus from the bar
+ 
 # Preview
 <img width="1920" height="1079" alt="tpVPD1k-" src="https://github.com/user-attachments/assets/de44549b-5526-478f-bcdd-50e43e6dafec" />
 <img width="1920" height="1079" alt="Yl0jleH7" src="https://github.com/user-attachments/assets/8d33eae3-cb4e-4fae-98f0-2793c371e605" />
