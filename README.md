@@ -10,8 +10,9 @@ personal debian i3wm rice, use at your own risk (i mean its not inherently evil 
 * **Shell**: zsh 
 
 # Preview
-<img width="1920" height="1079" alt="Yl0jleH7" src="https://github.com/user-attachments/assets/b311845e-f033-41d1-be23-4eb0b704fc85" />
-<img width="1920" height="1079" alt="tpVPD1k-" src="https://github.com/user-attachments/assets/b0aab10b-1072-4a8d-bdad-59b8499af2f3" />
+<img width="1920" height="1079" alt="tpVPD1k-" src="https://github.com/user-attachments/assets/de44549b-5526-478f-bcdd-50e43e6dafec" />
+<img width="1920" height="1079" alt="Yl0jleH7" src="https://github.com/user-attachments/assets/8d33eae3-cb4e-4fae-98f0-2793c371e605" />
+
 
 
 ## Installation
