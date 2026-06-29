@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+killall -q polybar
+while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+
+polybar left_pill &
+polybar center_pill &
+polybar right_pill &
+
+polybar example &

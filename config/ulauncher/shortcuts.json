@@ -1,0 +1,22 @@
+{
+    "ba8e7e5c-4d85-48ca-8c4a-a55670a8ee03": {
+        "id": "ba8e7e5c-4d85-48ca-8c4a-a55670a8ee03",
+        "name": "YouTube",
+        "keyword": "y",
+        "cmd": "https://www.youtube.com/results?search_query=%s",
+        "icon": "~/.config/ulauncher/icons/youtube.png",
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1748697515.3542013
+    },
+    "1a5185fe-ee63-4d67-b387-78792f8e6cf9": {
+        "id": "1a5185fe-ee63-4d67-b387-78792f8e6cf9",
+        "name": "GitHub profile",
+        "keyword": "git",
+        "cmd": "https://github.com/skedster",
+        "icon": "~/.config/ulauncher/icons/github.svg",
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1748701119.6001396
+    }
+}

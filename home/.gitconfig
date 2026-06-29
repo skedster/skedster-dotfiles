@@ -1,0 +1,21 @@
+[user]
+	name = skedster
+	email = happyjohnlee0@gmail.com
+	signingkey = 0C19F49146D3FA82
+[core]
+	pager = delta
+	autocrlf = input
+[init]
+	defaultbranch = main
+[commit]
+	gpgsign = true
+[pull]
+	rebase = true
+[diff]
+	algorithm = histogram
+[delta]
+    dark = true
+    navigate = true
+    hunk-header-style = syntax
+[credential "https://github.com"]
+	helper = !/usr/bin/env gh auth git-credential

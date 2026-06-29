@@ -1,0 +1,297 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""               
+"    ██╗██████╗ ███████╗ █████╗ ██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
+"    ██║██╔══██╗██╔════╝██╔══██╗██║   ██║██║████╗ ████║██╔══██╗██╔════╝
+"    ██║██║  ██║█████╗  ███████║██║   ██║██║██╔████╔██║██████╔╝██║
+"    ██║██║  ██║██╔══╝  ██╔══██║╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║
+"    ██║██████╔╝███████╗██║  ██║ ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
+"    ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
+"    Bahaaio
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""               
+
+" -- options --
+set scrolloff=5
+set incsearch
+set ignorecase
+set smartcase
+set ideajoin
+set number
+set relativenumber
+set hlsearch
+set notimeout
+
+" -- plugins --
+set mini-ai
+set NERDTree
+set surround
+set which-key
+set highlightedyank
+set argtextobj
+set textobj-indent
+set functiontextobj
+set easymotion
+
+" -- keymaps --
+let mapleader=" "
+
+" Window Navigation
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+
+let g:WhichKeyDesc_quit = "<leader>q Hide/Toggle all Windows"
+nmap <leader>q <Action>(HideAllWindows)
+
+" General Mappings
+nmap <C-S> :w<CR>
+nnoremap <expr> <Esc> v:hlsearch ? ':nohlsearch<CR>' : '<Esc>'
+
+let g:WhichKeyDesc_line_below = "]<space> add empty line below cursor"
+let g:WhichKeyDesc_line_above = "[<space> add empty line above cursor"
+nmap ]<space> o<Esc>k
+nmap [<space> O<Esc>j
+
+let g:WhichKeyDesc_run = "<leader>R Run"
+let g:WhichKeyDesc_stop = "<leader>S Stop"
+nmap <leader>R <Action>(Run)
+nmap <leader>S <Action>(Stop)
+
+" Paste
+map <C-S-v> <Action>(EditorPaste)
+imap <C-S-v> <Action>(EditorPaste)
+" paste without overriding register
+xnoremap p P
+
+" default keymaps override
+nmap n nzz
+nmap N Nzz
+nmap G Gzz
+nmap <C-d> <C-d>zz
+nmap <C-u> <C-u>zz
+" visual indentation
+vnoremap < <gv
+vnoremap > >gv
+
+" NERDTree
+let g:WhichKeyDesc_misc_tree = "<leader>e NERDTree focus"
+nmap <leader>e :NERDTreeFocus<CR>
+
+" easymotion
+nmap m <Plug>(easymotion-s)
+
+" Diagnostics
+let g:WhichKeyDesc_diagnostics = "<leader>d Diagnostics/Debugger"
+let g:WhichKeyDesc_diagnostics_file = "<leader>df file diagnostics"
+let g:WhichKeyDesc_diagnostics_next = "]d next diagnostic"
+let g:WhichKeyDesc_diagnostics_prev = "[d previous diagnostic"
+nmap <leader>df <Action>(ActivateProblemsViewToolWindow)
+nmap ]d <Action>(GotoNextError)
+nmap [d <Action>(GotoPreviousError)
+
+" Find
+let g:WhichKeyDesc_find = "<leader>f Find"
+let g:WhichKeyDesc_find_files = "<leader>ff Find files"
+let g:WhichKeyDesc_find_recent_files = "<leader>fr Find recent files"
+let g:WhichKeyDesc_find_locations= "<leader>fl Find recent locations"
+nmap <leader>ff <Action>(GotoFile)
+nmap <leader>fr <Action>(RecentFiles)
+map <leader>fl <Action>(RecentLocations)
+
+" Goto
+let g:WhichKeyDesc_goto = "g Goto"
+let g:WhichKeyDesc_goto_declaration = "gd Goto definition"
+let g:WhichKeyDesc_goto_type_declaration = "gy Goto type definition"
+let g:WhichKeyDesc_goto_implementation = "gi Goto implementation"
+let g:WhichKeyDesc_goto_usages = "gr Goto references"
+let g:WhichKeyDesc_goto_test = "gt Goto test"
+let g:WhichKeyDesc_goto_back = "gb Go back"
+let g:WhichKeyDesc_goto_forward = "gf Go forward"
+map gr <Action>(GotoDeclaration)
+map gd <Action>(GotoDeclaration)
+map gy <Action>(GotoTypeDeclaration)
+map gi <Action>(GotoImplementation)
+map gt <Action>(GotoTest)
+map gb <Action>(Back)
+map gf <Action>(Forward)
+
+" Search
+let g:WhichKeyDesc_search = "<leader>s Search/Replace"
+let g:WhichKeyDesc_search_todo = "<leader>st TODO"
+let g:WhichKeyDesc_search_grep = "<leader>sg grep"
+let g:WhichKeyDesc_search_current = "<leader>sb Search buffer"
+let g:WhichKeyDesc_search_symbol = "<leader>ss Go to symbol"
+let g:WhichKeyDesc_search_symbols = "<leader>sS Go to symbol (workspace)"
+let g:WhichKeyDesc_search_replace = "<leader>sr Search and replace"
+let g:WhichKeyDesc_search_replaceall = "<leader>sR Search and replace (workspace)"
+nmap <leader>st <Action>(ActivateTODOToolWindow)
+nmap <leader>sg <Action>(FindInPath)
+nmap <leader>sb <Action>(Find)
+nmap <leader>ss <Action>(FileStructurePopup)
+nmap <leader>sS <Action>(GotoSymbol)
+map <leader>sr <Action>(Replace)
+map <leader>sR <Action>(ReplaceInPath)
+
+" Code
+let g:WhichKeyDesc_code = "<leader>c Code"
+let g:WhichKeyDesc_code_action = "<leader>ca Code actions"
+let g:WhichKeyDesc_code_rename = "<leader>cr Rename"
+let g:WhichKeyDesc_code_format = "<leader>cf Format"
+let g:WhichKeyDesc_code_description = "<leader>cd Line diagnostics"
+let g:WhichKeyDesc_code_signature = "<leader>cs Surround"
+let g:WhichKeyDesc_code_generate = "<leader>cg Generate code"
+let g:WhichKeyDesc_code_configuration = "<leader>cc Code configuration"
+let g:WhichKeyDesc_code_implement = "<leader>ci Implement function"
+let g:WhichKeyDesc_code_override = "<leader>co Override function"
+map <leader>ca <Action>(ShowIntentionActions)
+nmap <leader>cr <Action>(RenameElement)
+nmap <leader>cf <Action>(ReformatCode)
+nmap <leader>cd <Action>(ShowErrorDescription)
+map <leader>cg <Action>(Generate)
+map <leader>cs <Action>(Floating.CodeToolbar.Surround)
+nmap <leader>cc <Action>(RedesignedRunConfigurationSelector)
+map <leader>ci <Action>(ImplementMethods)
+map <leader>co <Action>(OverrideMethods)
+
+" Refactoring
+let g:WhichKeyDesc_refactor = "<leader>r Refactor"
+let g:WhichKeyDesc_refactor_popup = "<leader>rr Refactor popup"
+let g:WhichKeyDesc_refactor_extract = "<leader>re Extract"
+let g:WhichKeyDesc_refactor_method = "<leader>rm Extract method" 
+let g:WhichKeyDesc_refactor_variable = "<leader>rv Introduce variable"
+let g:WhichKeyDesc_refactor_parameter = "<leader>rp Introduce parameter"
+let g:WhichKeyDesc_refactor_field = "<leader>rf Introduce field"
+let g:WhichKeyDesc_refactor_constant = "<leader>rc Introduce constant"
+let g:WhichKeyDesc_refactor_inline = "<leader>ri Inline method"
+let g:WhichKeyDesc_refactor_signature = "<leader>rs Change signature"
+let g:WhichKeyDesc_refactor_imports = "<leader>rI Optimize imports"
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+map <leader>re <Action>(Floating.CodeToolbar.Extract)
+nmap <leader>rm <Action>(ExtractMethod)
+nmap <leader>rv <Action>(IntroduceVariable)
+nmap <leader>rp <Action>(IntroduceParameter)
+map <leader>rf <Action>(IntroduceField)
+map <leader>rc <Action>(IntroduceConstant)
+nmap <leader>ri <Action>(Inline)
+nmap <leader>rs <Action>(ChangeSignature)
+nmap <leader>rI <Action>(OptimizeImports)
+
+" Tab management
+nmap L :tabn<CR>
+nmap H :tabp<CR>
+
+" Buffer management
+let g:WhichKeyDesc_buffers = "<leader>b Buffers"
+let g:WhichKeyDesc_buffers_delete = "<leader>bd Delete buffer"
+let g:WhichKeyDesc_buffers_close = "<leader>x Close buffer"
+let g:WhichKeyDesc_buffers_pin = "<leader>bp Pin buffer"
+let g:WhichKeyDesc_buffers_close_others = "<leader>bo Close other buffers"
+let g:WhichKeyDesc_buffers_close_right = "<leader>br Close buffers to right"
+let g:WhichKeyDesc_buffers_close_left = "<leader>bl Close buffers to left"
+let g:WhichKeyDesc_buffers_move_right = "]B Move buffer right"
+let g:WhichKeyDesc_buffers_move_left = "]B Move buffer left"
+nmap <leader>bd :bd<CR>
+nmap <leader>x :bd<CR>
+nmap <leader>bp <Action>(PinActiveEditorTab)
+nmap <leader>bo <Action>(CloseAllEditorsButActive)
+nmap <leader>br <Action>(CloseAllToTheRight)
+nmap <leader>bl <Action>(CloseAllToTheLeft)
+nmap ]B :tabm +1<CR>
+nmap [B :tabm -1<CR>
+
+" Window management
+let g:WhichKeyDesc_windows = "<leader>w Windows"
+let g:WhichKeyDesc_windows_delete = "<leader>wd Close window"
+let g:WhichKeyDesc_windows_split_h = "<leader>ws Split horizontally"
+let g:WhichKeyDesc_windows_split_v = "<leader>wv Split vertically"
+let g:WhichKeyDesc_windows_split_h2 = "<leader>\\ Split vertically"
+let g:WhichKeyDesc_windows_split_v2 = "<leader>- Split horizontally"
+nmap <leader>wd :close<CR>
+nmap <leader>ws :split<CR>
+nmap <leader>wv :vsplit<CR>
+nmap <leader>\\ :vsplit<CR>
+nmap <leader>- :split<CR>
+
+" Insert mode keymaps
+imap <C-h> <Left>
+imap <C-j> <Down>
+imap <C-k> <Up>
+imap <C-l> <Right>
+inoremap <C-e> <End>
+inoremap <C-a> <Home>
+
+" Yanking
+nnoremap y "+y
+vnoremap y "+y
+nmap Y "+y$
+nmap <C-c> :%y+<CR>
+
+" Commenting
+let g:WhichKeyDesc_misc_comment = "<leader>/ Toggle comment"
+let g:WhichKeyDesc_misc_doc = "<leader>? Toggle documentation"
+map <leader>/ <Action>(CommentByLineComment)
+nmap <leader>? <Action>(ToggleRenderedDocPresentation)
+
+" .ideavimrc
+let g:WhichKeyDesc_vim = "<leader>v ideavim"
+let g:WhichKeyDesc_vim_edit = "<leader>ve Edit .ideavimrc"
+let g:WhichKeyDesc_vim_reload = "<leader>vr Reload .ideavimrc"
+nnoremap <leader>ve :e ~/.ideavimrc<CR>
+nnoremap <leader>vr :action IdeaVim.ReloadVimRc.reload<CR>
+
+" Git
+let g:WhichKeyDesc_git = "<leader>g Git"
+let g:WhichKeyDesc_git_push = "<leader>gp Git push"
+let g:WhichKeyDesc_git_update = "<leader>gP Git pull"
+let g:WhichKeyDesc_git_commit = "<leader>gc Git commit"
+let g:WhichKeyDesc_git_status = "<leader>gs Git status"
+let g:WhichKeyDesc_git_diff = "<leader>gd Git diff file"
+let g:WhichKeyDesc_git_ai= "<leader>ga AI commit message"
+let g:WhichKeyDesc_git_browse= "<leader>gb Git browse"
+nmap <leader>gp <Action>(Vcs.Push)
+nmap <leader>gP <Action>(Vcs.UpdateProject)
+nmap <leader>gc <Action>(ActivateCommitToolWindow)
+nmap <leader>gs <Action>(ActivateVersionControlToolWindow)
+nmap <leader>gd <Action>(Compare.SameVersion)
+nmap <leader>ga <Action>(Vcs.LLMCommitMessageAction)
+nmap <leader>gb <Action>(Github.Open.In.Browser)
+
+let g:WhichKeyDesc_hunk = "<leader>gh Git hunk"
+let g:WhichKeyDesc_hunk_reset = "<leader>ghr Reset hunk"
+let g:WhichKeyDesc_hunk_revert = "<leader>ghR Revert file changes"
+let g:WhichKeyDesc_hunk_diff = "<leader>ghd Diff hunk"
+let g:WhichKeyDesc_hunk_next = "]h Next hunk"
+let g:WhichKeyDesc_hunk_prev = "[h Previous hunk"
+nmap <leader>ghr <Action>(Vcs.RollbackChangedLines)
+nmap <leader>ghR <Action>(Vcs.RollbackChangedLines)
+nmap <leader>ghd <Action>(Vcs.ShowDiffChangedLines)
+nmap ]h <Action>(VcsShowNextChangeMarker)
+nmap [h <Action>(VcsShowPrevChangeMarker)
+
+" Project navigation
+let g:WhichKeyDesc_project = "<leader>p Project"
+let g:WhichKeyDesc_project_projects = "<leader>pp Recent projects"
+let g:WhichKeyDesc_project_new = "<leader>pn New project"
+nmap <leader>pp <Action>(ManageRecentProjects)
+nmap <leader>pn <Action>(NewProject)
+
+" Debugger
+let g:WhichKeyDesc_debug_run = "<leader>dr Run debugger"
+let g:WhichKeyDesc_debug_breakpoint = "<leader>db Toggle breakpoint"
+map <leader>dr <Action>(Debug)
+map <leader>db <Action>(ToggleLineBreakpoint)
+
+" Testing
+let g:WhichKeyDesc_test = "<leader>t Testing"
+let g:WhichKeyDesc_test_run = "<leader>tr Run test class"
+let g:WhichKeyDesc_test_run_last = "<leader>tl Run last test"
+let g:WhichKeyDesc_test_failed = "<leader>tf Run failed tests"
+let g:WhichKeyDesc_test_coverage = "<leader>tc Run with coverage"
+nmap <leader>tr <Action>(RunClass)
+nmap <leader>tl <Action>(Rerun)
+nmap <leader>tf <action>(RerunFailedTests)
+nmap <leader>tc <Action>(RunCoverage)
+
+" remove easymotion space + space
+unmap <space><space>
+
+" TODO: exchange plugin
