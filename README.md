@@ -11,6 +11,7 @@ personal debian i3wm rice, use at your own risk (i mean its not inherently evil 
 
 # Cool features
 "auto ricing" with pywal, colors will match wallpaper
+
 this not added yet but in the future bunch of drop down menus from the bar
  
 # Preview
