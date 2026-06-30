@@ -25,7 +25,7 @@ this not added yet but in the future bunch of drop down menus from the bar
 > make sure to back up your current config cause im like 50/50 on wether this will work on other machines
 
 Dependencies:
-btop, gtk-3.0, mpv, polybar, copyq, gtk-4.0, nvim, yazi, dunst, i3, picom, rofi, ulauncher, wezterm
+btop, gtk-3.0, mpv, polybar, copyq, gtk-4.0, nvim, yazi, dunst, i3, picom, rofi, ulauncher, wezterm, zsh-autosuggestions
 
 ```bash
 cd ~
